@@ -553,6 +553,18 @@ pre code {
   margin-left: auto;
 }
 
+.tablecontainer {
+  width: 100%;
+  padding-top:0;
+  padding-bottom:2rem;
+  margin-top:0;
+  padding-right: 15px;
+  padding-left: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(255, 160, 122, 0.2);
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -10216,3 +10228,85 @@ asides #music .playopause{
   margin-top:-43px;
   margin-left: 60px;
 }
+
+.rainbowdiv{
+  padding:0.5rem 1rem 0rem 1rem;
+  background-color: rgba(255, 160, 122, 0.2);
+  border-radius: 0.3rem;
+}
+
+.mytable{
+  width: 90%;
+}
+
+.tablerainbow{
+  width:100%;
+  height:5px;
+}
+
+.tablefirstrow{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid #BBB;
+  color:gray;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.tablebody{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid #BBB;
+}
+
+.tablemainodd{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid #BBB;
+}
+
+.tablemaineven{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid #BBB;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.regimage
+{
+   color: gray;
+   text-decoration: none;
+   background-color:none;
+}
+
+.tooltip {
+  z-index:99;
+  position: relative;
+  opacity:1%;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  top: -5px;
+  left: 105%;
+  z-index: 100;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
