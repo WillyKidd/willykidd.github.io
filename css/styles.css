@@ -553,6 +553,16 @@ pre code {
   margin-left: auto;
 }
 
+.containerr {
+  background-color:rgba(48, 182, 119, 0.459);
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  z-index:5;
+}
+
 .tablecontainer {
   width: 100%;
   padding-top:0;
@@ -5112,6 +5122,15 @@ a.badge-dark:focus, a.badge-dark.focus {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   border-radius: 0.3rem;
+}
+
+.jumbotronnn {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  margin-top:2rem;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 0.3rem;
+  z-index:99;
 }
 
 @media (min-width: 576px) {
