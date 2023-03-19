@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="containerOuter">
     <div id="container">
       <div id="scoreContainer" class="buttonPressed">
         <div id="flag">
@@ -193,7 +193,7 @@ class Board {
       if (this.flagCnt == 0) {
         return CellState.Covered;
       }
-      this.flagCnt++;
+      this.flagCnt--;
       return CellState.Flagged;
     }
     if (currentState == CellState.Flagged) {
@@ -239,6 +239,11 @@ export default {
       bombPercentageInput: null,
       flagStr: "0038",
       optionShown: true,
+    }
+  },
+  computed: {
+    containerOuterHeight() {  // TODO: height that fits better?
+      return Math.max(Math.floor(1.6 * this.row + 10), 40).toString() + "rem";
     }
   },
   methods: {
@@ -416,7 +421,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+#containerOuter {
+  height: v-bind(containerOuterHeight);
+}
 #container {
   vertical-align: top;
   box-sizing: border-box;

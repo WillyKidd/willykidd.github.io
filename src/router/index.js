@@ -20,7 +20,7 @@ const router = createRouter({
     {
       path: '/flight',
       name: 'flight',
-      component: () => import('../views/Flight.vue')
+      component: () => import('../views/FlightLog.vue')
     },
     {
       path: '/game',

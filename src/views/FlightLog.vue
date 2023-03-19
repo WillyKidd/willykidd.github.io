@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import {
   CTable,
@@ -12,7 +11,7 @@ import { right } from '@popperjs/core'
 </script>
 
 <template>
-  <div class="container">
+  <div style="padding: 2rem 4rem 1rem 4rem">
     <h2 style="padding: 0em 1rem 0rem 1rem">Flight Log</h2>
     <div>
       <img class="rainbow-img" src="../assets/color.png" alt="rainbow" />

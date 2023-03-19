@@ -26,7 +26,7 @@ import {
     </head>
     <CNavbar expand="lg" class="navbar">
       <CContainer fluid>
-        <CNavLink class="navbar-brand" href="#">Weili's Playground</CNavLink>
+        <CNavLink class="navbar-brand" href="/">Weili's Playground</CNavLink>
         <CNavbarToggler
           aria-label="Toggle navigation"
           aria-expanded="{visible}"
@@ -35,23 +35,17 @@ import {
         <CCollapse class="navbar-collapse" :visible="visible">
           <CNavbarNav class="me-auto mb-2 mb-lg-0">
             <CNavItem class="nav-item">
-              <a class="nav-link" href="about">About</a>
+              <a class="nav-link" href="/about">About</a>
             </CNavItem>
             <CNavItem class="nav-item">
-              <a class="nav-link" href="https://willykidd.github.io/flight.html">Gallery</a>
+              <a class="nav-link" href="/flight">Gallery</a>
             </CNavItem>
             <CNavItem class="nav-item">
-              <a class="nav-link" href="https://willykidd.github.io/flight.html">My Flight Log</a>
+              <a class="nav-link" href="/flight">Flight Log</a>
             </CNavItem>
-            <CDropdown variant="nav-item" :popper="false">
-              <CDropdownToggle>Misc</CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem href="#">Mine-Sweeping</CDropdownItem>
-                <CDropdownItem href="#">Another action</CDropdownItem>
-                <CDropdownDivider />
-                <CDropdownItem href="#">Something else here</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
+            <CNavItem class="nav-item">
+              <a class="nav-link" href="/game">Mine Sweep</a>
+            </CNavItem>
           </CNavbarNav>
         </CCollapse>
       </CContainer>
@@ -60,7 +54,6 @@ import {
       <RouterView />
     </div>
   </div>
-
   <footer class="text-center">
     <div class="footer-text">
       <p>© Weili Shi 2022. Some rights reserved.</p>
@@ -93,10 +86,11 @@ export default {
 }
 
 .big-container {
-  padding: 2rem 1rem;
   margin-bottom: 1rem;
   background-color: rgba(255, 160, 122, 0.2);
   border-radius: 0.3rem;
+  height: 100%;
+  display: block;
 }
 
 .footer-text {
