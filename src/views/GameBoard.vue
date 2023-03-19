@@ -275,13 +275,19 @@ export default {
       event.target.classList.remove('buttonPressed');
     },
     clearStyle() {
-      for (let i = 0; i < this.row; i++) {
-        for (let j = 0; j < this.col; j++) {
-          const element = document.getElementById("tableBody").rows[i].cells[j];
-          element.classList.remove('boom', 'uncovered', 'boomRed', 
+      const body = document.getElementById("tableBody");
+      const rowNum = body.rows.length;
+      if (rowNum == 0) {
+        return;
+      }
+      const colNum = body.rows[0].cells.length;
+      for (let i = 0; i < rowNum; i++) {
+        for (let j = 0; j < colNum; j++) {
+          const element = body.rows[i].cells[j];
+            element.classList.remove('boom', 'uncovered', 'boomRed', 
             'flagged', 'bomb0', 'bomb1', 'bomb2', 'bomb3','bomb4', 
             'bomb5', 'bomb6', 'bomb7', 'bomb8', 'noClick', 'boom2', 'noSelect');
-          element.classList.add('bomb0');
+            element.classList.add('bomb0');
         }
       }
       document.getElementById("tableBody").classList.remove('noClick');
