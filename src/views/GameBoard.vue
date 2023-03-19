@@ -191,13 +191,16 @@ class Board {
     let currentState = this.cells[x][y].state;
     if (currentState == CellState.Covered) {
       if (this.flagCnt == 0) {
+        alert("no flags remain");
         return CellState.Covered;
       }
       this.flagCnt--;
+      this.cells[x][y].state = CellState.Flagged;
       return CellState.Flagged;
     }
     if (currentState == CellState.Flagged) {
       this.flagCnt++;
+      this.cells[x][y].state = CellState.Covered;
       return CellState.Covered;
     }
     if (currentState == CellState.Uncovered) {
