@@ -6,7 +6,7 @@
           <span id="flagIndicator" class="buttonPressed">{{ this.flagStr }}</span>
         </div>
         <div id="face" class="noSelect">
-          <img :src='require(`@/assets/emoji/${faceType}.png`)' 
+          <img :src='require(`@/assets/emoji/${faceType}.svg`)' 
             class="faceImg, noSelect, buttonNormal"
             @mousedown="e => buttonPress(e)"
             @mouseup="e => {
@@ -297,7 +297,7 @@ export default {
     },
     getFace(type) {
       const state = this.board.state;
-      const rand = Math.floor(Math.random() * 4)
+      const rand = Math.floor(Math.random() * 2)
       if (state == GameState.Dead) {
         this.faceType = "dead" + rand;
         return;

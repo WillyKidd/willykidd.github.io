@@ -12,7 +12,7 @@ import { right } from '@popperjs/core'
 
 <template>
   <div style="padding: 2rem 4rem 1rem 4rem">
-    <h2 style="padding: 0em 1rem 0rem 1rem">Flight Log</h2>
+    <h2 style="padding: 0em 1rem 0rem 1rem; display: inline;">Flight Log <img style="display: inline; width: 35px" src="../assets/emoji/plane.svg" alt="plane"></h2>
     <div>
       <img class="rainbow-img" src="../assets/color.png" alt="rainbow" />
     </div>
