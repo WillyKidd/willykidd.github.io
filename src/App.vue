@@ -21,7 +21,10 @@ import {
     </head>
     <CNavbar expand="lg" class="navbar">
       <CContainer fluid>
-        <CNavLink class="navbar-brand" href="/">Weili's Playground</CNavLink>
+        <CNavLink class="navbar-brand" href="/">
+          <img style="display: inline; width: 40px" src="@/assets/emoji/playground.svg" alt="slide">
+            Weili's Playground
+        </CNavLink>
         <CNavbarToggler
           aria-label="Toggle navigation"
           aria-expanded="{visible}"
@@ -30,16 +33,28 @@ import {
         <CCollapse class="navbar-collapse" :visible="visible">
           <CNavbarNav class="me-auto mb-2 mb-lg-0">
             <CNavItem class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+              <a class="nav-link" href="/about">
+                <img style="display: inline; width: 25px" src="@/assets/emoji/about.svg" alt="slide">
+                About
+              </a>
             </CNavItem>
             <CNavItem class="nav-item">
-              <a class="nav-link" href="/flight">Gallery</a>
+              <a class="nav-link" href="/flight">
+                <img style="display: inline; width: 25px" src="@/assets/emoji/gallery.svg" alt="slide">
+                Gallery
+              </a>
             </CNavItem>
             <CNavItem class="nav-item">
-              <a class="nav-link" href="/flight">Flight Log</a>
+              <a class="nav-link" href="/flight">
+                <img style="display: inline; width: 25px" src="@/assets/emoji/plane.svg" alt="slide">
+                Flight Log
+              </a>
             </CNavItem>
             <CNavItem class="nav-item">
-              <a class="nav-link" href="/game">Mine Sweep</a>
+              <a class="nav-link" href="/game">
+                <img style="display: inline; width: 25px" src="@/assets/emoji/bomb.svg" alt="slide">
+                MineSweeper
+              </a>
             </CNavItem>
           </CNavbarNav>
         </CCollapse>
