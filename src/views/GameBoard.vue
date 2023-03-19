@@ -246,6 +246,9 @@ export default {
       return Math.max(Math.floor(1.6 * this.row + 10), 40).toString() + "rem";
     }
   },
+  mounted() {
+    document.title = "Minesweeper"
+  },
   methods: {
     boom() {
       document.getElementById("tableBody").classList.add('noClick');

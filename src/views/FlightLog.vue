@@ -96,6 +96,9 @@ export default {
       })
     }
   },
+  mounted() {
+    document.title = "Flight Log"
+  },
   data() {
     let content = {}
     let raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat

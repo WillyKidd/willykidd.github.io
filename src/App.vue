@@ -62,6 +62,9 @@ export default {
     return {
       visible: false
     }
+  },
+  mounted() {
+    document.title = "Weili's Playground"
   }
 }
 </script>
