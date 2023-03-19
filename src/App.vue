@@ -7,11 +7,6 @@ import {
   CNavbarToggler,
   CNavItem,
   CNavLink,
-  CDropdown,
-  CDropdownMenu,
-  CDropdownDivider,
-  CDropdownItem,
-  CDropdownToggle,
   CNavbarNav
 } from '@coreui/vue'
 </script>
