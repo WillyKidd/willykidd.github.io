@@ -1,5 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
-// eslint-disable-next-line vue/multi-word-component-names
 <template>
   <div class="div-sec div-profile-2cols">
     <div>

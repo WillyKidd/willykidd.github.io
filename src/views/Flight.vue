@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<script setup lang="ts">
+<script setup>
 import {
   CTable,
   CTableHead,
   CTableRow,
   CTableHeaderCell,
   CTableBody,
-  CTableDataCell
+  CTableDataCell,
 } from '@coreui/vue'
 import { right } from '@popperjs/core'
 </script>
@@ -79,7 +79,7 @@ import { right } from '@popperjs/core'
 }
 </style>
 
-<script lang="ts">
+<script>
 import Papa from 'papaparse'
 export default {
   created: function () {
@@ -91,14 +91,14 @@ export default {
       Papa.parse(this.raw, {
         header: true,
         skipEmptyLines: true,
-        complete: (results: any) => {
+        complete: (results) => {
           this.content = results
         }
       })
     }
   },
   data() {
-    let content = {} as Papa.ParseResult<any>
+    let content = {}
     let raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat
 2021/05/07,DR5310,B-7866|https://cdn.jetphotos.com/400/6/99111_1621348608.jpg|https://cdn.jetphotos.com/full/6/99111_1621348608.jpg,XYI,WUX,606,11:38,14:05,RLH,B738,7A
 2021/05/04,CZ5791,B-6135|https://cdn.jetphotos.com/400/6/76682_1645366796.jpg|https://cdn.jetphotos.com/full/6/76682_1645366796.jpg,PVG,XIY,688,10:22,12:40,CSN,A332,45K

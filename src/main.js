@@ -9,8 +9,6 @@ import 'floating-vue/dist/style.css'
 import './assets/base.css'
 
 const app = createApp(App)
-
 app.use(router)
 app.use(FloatingVue)
-
 app.mount('#app')

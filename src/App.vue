@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { RouterView } from 'vue-router'
 import {
   CNavbar,
@@ -68,7 +68,7 @@ import {
   </footer>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   data() {
     return {
