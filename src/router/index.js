@@ -21,6 +21,11 @@ const router = createRouter({
       path: '/flight',
       name: 'flight',
       component: () => import('../views/Flight.vue')
+    },
+    {
+      path: '/game',
+      name: 'game',
+      component: () => import('../views/GameBoard.vue')
     }
   ]
 })
