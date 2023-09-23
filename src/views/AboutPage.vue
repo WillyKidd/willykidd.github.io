@@ -1,41 +1,57 @@
 <template>
-  <div class="div-sec div-profile-2cols">
-    <div>
-      <img class="portrait" src="../assets/butters.jpg" />
-    </div>
-  </div>
+  <v-row class="section" id="hi-section">
+    <v-col id="hi-container">
+      <div class="text">
+        <h1 class="hi-text">Hi There!</h1>
+        <h1 class="hi-text">I am Weili :-)</h1>
+      </div>
+    </v-col>
+  </v-row>
+  <v-row class="section">
+    <v-col class="text-container">
+      <div class="text">
+        <h1 class="hi-text">Work in progress....</h1>
+      </div>
+    </v-col>
+  </v-row>
 </template>
 
-<style scoped>
-.container {
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  background-color: rgba(255, 160, 122, 0.2);
-  border-radius: 0.3rem;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+<style lang="scss" scoped>
+.hi-text {
+  font-weight: bold;
+  font-size: 50px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
-.div-sec {
-  box-sizing: border-box;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  min-width: 320px;
-  max-width: 1024px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
+.section {
+  margin: 0;
+  color: rgba(60,60,60);
+  position: relative;
+}
+
+#hi-container {
+  background: linear-gradient(
+    to right, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.5) 50%,rgba(255,255,255,0) 100%
+  );
+  padding-bottom: 0;
+  padding-left: 80px;
+  padding-top: 80px;
+  height: calc(100vh);
   display: block;
 }
 
-.div-profile-2cols {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  column-gap: 3rem;
-  align-items: center;
+#hi-section {
+  background-image: url("../assets/about.jpeg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-container {
+  padding-bottom: 0;
+  padding-left: 80px;
+  padding-top: 80px;
+  height: 200px;
+  display: block;
 }
 </style>

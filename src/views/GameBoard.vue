@@ -522,9 +522,8 @@ export default {
   padding: 2px;
 }
 #optionShow {
-  -webkit-margin-start: 112.5px;
-  text-align: center;
   position: fixed;
+  text-align: center;
   display: inline;
   margin-top: 30px;
   margin-left: 112.5px;
@@ -616,6 +615,7 @@ export default {
   width: 105px;
   margin-right: 5px;
   writing-mode: horizontal-tb;
+  background-color: white;
 }
 .optionButton {
   margin-top: 5px;

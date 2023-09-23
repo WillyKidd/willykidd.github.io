@@ -66,7 +66,7 @@ import {
   </div>
   <footer class="text-center">
     <div class="footer-text">
-      <p>© Weili Shi 2022. Some rights reserved.</p>
+      <p>© Weili Shi 2023. Some rights reserved.</p>
     </div>
   </footer>
 </template>
