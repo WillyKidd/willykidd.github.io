@@ -102,6 +102,15 @@ export default {
   data() {
     let content = {}
     let raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat
+2023/09/08,B62036,M3125J|https://cdn.jetphotos.com/400/6/640394_1693483459.jpg|https://cdn.jetphotos.com/full/6/640394_1693483459.jpg,DTW,BOS,621,09:09,10:33,JBU,A223,18F
+2023/09/02,B61037,N318JB|https://cdn.jetphotos.com/400/6/90637_1652053492.jpg|https://cdn.jetphotos.com/full/6/90637_1652053492.jpg,BOS,DTW,621,17:26,19:12,JBU,E190,6D
+2023/08/30,MX701,N216BZ|https://cdn.jetphotos.com/400/5/1226511_1688864273.jpg|https://cdn.jetphotos.com/full/5/1226511_1688864273.jpg,LAX,PVD,2587,12:26,20:23,MXY,A223,5A
+2023/08/11,PR102,RP-C7777|https://cdn.jetphotos.com/400/5/96935_1652696389.jpg|https://cdn.jetphotos.com/full/5/96935_1652696389.jpg,MNL,LAX,7296,22:39,20:11,PAL,B77W,51A
+2023/08/11,PR357,RP-C9907|https://cdn.jetphotos.com/400/5/99578_1512987831.jpg|https://cdn.jetphotos.com/full/5/99578_1512987831.jpg,JJN,MNL,729,15:22,17:50,PAL,A321,43K
+2023/07/06,HO1060,B-8587|https://cdn.jetphotos.com/400/5/23047_1573133699.jpg|https://cdn.jetphotos.com/full/5/23047_1573133699.jpg,TFU,SHA,1006,20:48,22:56,DKH,A321,34A
+2023/06/30,HO1059,B-8068|https://cdn.jetphotos.com/400/6/48107_1625045717.jpg|https://cdn.jetphotos.com/full/6/48107_1625045717.jpg,SHA,TFU,1107,17:24,20:05,DKH,A321,41K
+2023/05/15,9C8922,B-6852|https://cdn.jetphotos.com/400/5/83777_1559148550.jpg|https://cdn.jetphotos.com/full/5/83777_1559148550.jpg,HKG,PVG,772,18:05,20:11,CQH,A320,7A
+2023/05/12,CS365,B-LAA|https://cdn.jetphotos.com/400/5/1606889_1686112376.jpg|https://cdn.jetphotos.com/full/5/1606889_1686112376.jpg,PVG,HKG,779,10:06,12:16,CPA,A333,54K
 2021/05/07,DR5310,B-7866|https://cdn.jetphotos.com/400/6/99111_1621348608.jpg|https://cdn.jetphotos.com/full/6/99111_1621348608.jpg,XYI,WUX,606,11:38,14:05,RLH,B738,7A
 2021/05/04,CZ5791,B-6135|https://cdn.jetphotos.com/400/6/76682_1645366796.jpg|https://cdn.jetphotos.com/full/6/76682_1645366796.jpg,PVG,XIY,688,10:22,12:40,CSN,A332,45K
 2020/02/02,MU506,B-6926|https://cdn.jetphotos.com/400/5/66757_1582880782.jpg|https://cdn.jetphotos.com/full/5/66757_1582880782.jpg,HKG,PVG,781,20:20,22:54,CES,A321,35A
