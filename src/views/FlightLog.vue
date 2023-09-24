@@ -57,6 +57,7 @@ import { right } from "@popperjs/core";
                     html: true,
                     placement: right,
                   }"
+                  style="text-decoration: underline"
                 >
                   {{ content.data[rowKey][column].replace(/\s/g, "") }}
                 </div>
@@ -68,6 +69,7 @@ import { right } from "@popperjs/core";
                     html: true,
                     placement: right,
                   }"
+                  style="text-decoration: underline"
                 >
                   {{ content.data[rowKey][column].replace(/\s/g, "") }}
                 </div>
