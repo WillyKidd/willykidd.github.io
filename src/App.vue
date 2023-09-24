@@ -131,5 +131,11 @@ export default {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.nav-link {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-weight: bold;
 }
 </style>

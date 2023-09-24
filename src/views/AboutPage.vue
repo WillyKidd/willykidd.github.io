@@ -17,13 +17,15 @@
           where I obtained my bachelor's degree from Shanghai Jiao Tong
           University. <br /><br />
           I am interested in computer systems, and I have previously worked at a
-          startup developing databases in Rust, as well as research on encrypted
-          databases.
-          <br /><br />
-          Outside of CS, I enjoy traveling around (see my flight log), taking
-          pictures, and cooking (still learning..). I also have a growing
-          collection of diecast model aircrafts, and I am trying to keep its
-          size under control ;)
+          <a href="https://www.risingwave.com">startup</a> developing databases
+          in Rust, as well as research on encrypted databases. I want to study,
+          think about and work more on systems, but I'm also interested in other
+          areas of CS (try out my little <a href="/game">game</a>)! <br /><br />
+          Outside of CS, I enjoy traveling around (see my
+          <a href="/flight">flight log</a>), taking
+          <a href="/gallery">pictures</a>, and cooking (still learning..). I
+          also have a growing collection of diecast model aircrafts, and I am
+          trying to keep its size under control ;)
         </p>
       </div>
     </v-col>
@@ -71,10 +73,7 @@
 }
 
 .text-container {
-  padding-bottom: 0;
-  padding-left: 80px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px;
   height: 100%;
   display: block;
 }
