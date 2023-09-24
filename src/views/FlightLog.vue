@@ -110,7 +110,7 @@ export default {
 2023/07/06,HO1060,B-8587|https://cdn.jetphotos.com/400/5/23047_1573133699.jpg|https://cdn.jetphotos.com/full/5/23047_1573133699.jpg,TFU,SHA,1006,20:48,22:56,DKH,A321,34A
 2023/06/30,HO1059,B-8068|https://cdn.jetphotos.com/400/6/48107_1625045717.jpg|https://cdn.jetphotos.com/full/6/48107_1625045717.jpg,SHA,TFU,1107,17:24,20:05,DKH,A321,41K
 2023/05/15,9C8922,B-6852|https://cdn.jetphotos.com/400/5/83777_1559148550.jpg|https://cdn.jetphotos.com/full/5/83777_1559148550.jpg,HKG,PVG,772,18:05,20:11,CQH,A320,7A
-2023/05/12,CS365,B-LAA|https://cdn.jetphotos.com/400/5/1606889_1686112376.jpg|https://cdn.jetphotos.com/full/5/1606889_1686112376.jpg,PVG,HKG,779,10:06,12:16,CPA,A333,54K
+2023/05/12,CX365,B-LAA|https://cdn.jetphotos.com/400/5/1606889_1686112376.jpg|https://cdn.jetphotos.com/full/5/1606889_1686112376.jpg,PVG,HKG,779,10:06,12:16,CPA,A333,54K
 2021/05/07,DR5310,B-7866|https://cdn.jetphotos.com/400/6/99111_1621348608.jpg|https://cdn.jetphotos.com/full/6/99111_1621348608.jpg,XYI,WUX,606,11:38,14:05,RLH,B738,7A
 2021/05/04,CZ5791,B-6135|https://cdn.jetphotos.com/400/6/76682_1645366796.jpg|https://cdn.jetphotos.com/full/6/76682_1645366796.jpg,PVG,XIY,688,10:22,12:40,CSN,A332,45K
 2020/02/02,MU506,B-6926|https://cdn.jetphotos.com/400/5/66757_1582880782.jpg|https://cdn.jetphotos.com/full/5/66757_1582880782.jpg,HKG,PVG,781,20:20,22:54,CES,A321,35A

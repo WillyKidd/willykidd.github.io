@@ -522,7 +522,7 @@ export default {
   padding: 2px;
 }
 #optionShow {
-  position: fixed;
+  position: relative;
   text-align: center;
   display: inline;
   margin-top: 30px;
