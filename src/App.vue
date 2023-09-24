@@ -1,5 +1,5 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import { RouterView } from "vue-router";
 import {
   CNavbar,
   CCollapse,
@@ -7,8 +7,8 @@ import {
   CNavbarToggler,
   CNavItem,
   CNavLink,
-  CNavbarNav
-} from '@coreui/vue'
+  CNavbarNav,
+} from "@coreui/vue";
 </script>
 
 <template>
@@ -22,8 +22,12 @@ import {
     <CNavbar expand="lg" class="navbar">
       <CContainer fluid>
         <CNavLink class="navbar-brand" href="/">
-          <img style="display: inline; width: 40px" src="@/assets/emoji/playground.svg" alt="slide">
-            Weili's Playground
+          <img
+            style="display: inline; width: 40px"
+            src="@/assets/emoji/playground.svg"
+            alt="slide"
+          />
+          Weili's Playground
         </CNavLink>
         <CNavbarToggler
           aria-label="Toggle navigation"
@@ -34,25 +38,41 @@ import {
           <CNavbarNav class="me-auto mb-2 mb-lg-0">
             <CNavItem class="nav-item">
               <a class="nav-link" href="/about">
-                <img style="display: inline; width: 25px" src="@/assets/emoji/about.svg" alt="slide">
+                <img
+                  style="display: inline; width: 25px"
+                  src="@/assets/emoji/about.svg"
+                  alt="slide"
+                />
                 About
               </a>
             </CNavItem>
             <CNavItem class="nav-item">
-              <a class="nav-link" href="/flight">
-                <img style="display: inline; width: 25px" src="@/assets/emoji/gallery.svg" alt="slide">
+              <a class="nav-link" href="/gallery">
+                <img
+                  style="display: inline; width: 25px"
+                  src="@/assets/emoji/gallery.svg"
+                  alt="slide"
+                />
                 Gallery
               </a>
             </CNavItem>
             <CNavItem class="nav-item">
               <a class="nav-link" href="/flight">
-                <img style="display: inline; width: 25px" src="@/assets/emoji/plane.svg" alt="slide">
+                <img
+                  style="display: inline; width: 25px"
+                  src="@/assets/emoji/plane.svg"
+                  alt="slide"
+                />
                 Flight Log
               </a>
             </CNavItem>
             <CNavItem class="nav-item">
               <a class="nav-link" href="/game">
-                <img style="display: inline; width: 25px" src="@/assets/emoji/bomb.svg" alt="slide">
+                <img
+                  style="display: inline; width: 25px"
+                  src="@/assets/emoji/bomb.svg"
+                  alt="slide"
+                />
                 MineSweeper
               </a>
             </CNavItem>
@@ -75,13 +95,13 @@ import {
 export default {
   data() {
     return {
-      visible: false
-    }
+      visible: false,
+    };
   },
   mounted() {
-    document.title = "Weili's Playground"
-  }
-}
+    document.title = "Weili's Playground";
+  },
+};
 </script>
 
 <style scoped>

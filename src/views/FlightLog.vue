@@ -6,13 +6,20 @@ import {
   CTableHeaderCell,
   CTableBody,
   CTableDataCell,
-} from '@coreui/vue'
-import { right } from '@popperjs/core'
+} from "@coreui/vue";
+import { right } from "@popperjs/core";
 </script>
 
 <template>
   <div style="padding: 2rem 4rem 1rem 4rem">
-    <h2 style="padding: 0em 1rem 0rem 1rem; display: inline;">Flight Log <img style="display: inline; width: 35px" src="../assets/emoji/plane.svg" alt="plane"></h2>
+    <h2 style="padding: 0em 1rem 0rem 1rem; display: inline">
+      Flight Log
+      <img
+        style="display: inline; width: 35px"
+        src="../assets/emoji/plane.svg"
+        alt="plane"
+      />
+    </h2>
     <div>
       <img class="rainbow-img" src="../assets/color.png" alt="rainbow" />
     </div>
@@ -26,12 +33,15 @@ import { right } from '@popperjs/core'
               v-for="(header, key) in content.meta.fields"
               v-bind:key="'header-' + key"
             >
-              {{ header.replace(/\s/g, '') }}
+              {{ header.replace(/\s/g, "") }}
             </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
-          <CTableRow v-for="(_, rowKey) in content.data" v-bind:key="'row-' + rowKey">
+          <CTableRow
+            v-for="(_, rowKey) in content.data"
+            v-bind:key="'row-' + rowKey"
+          >
             <CTableHeaderCell>
               {{ rowKey + 1 }}
             </CTableHeaderCell>
@@ -43,18 +53,22 @@ import { right } from '@popperjs/core'
                 <div
                   v-tooltip="{
                     content:
-                      '<div><img src=' + content.data[rowKey][column].split('|')[1] + '></div>',
+                      '<div><img src=' +
+                      content.data[rowKey][column].split('|')[1] +
+                      '></div>',
                     html: true,
-                    placement: right
+                    placement: right,
                   }"
                 >
                   <a v-bind:href="content.data[rowKey][column].split('|')[2]">
-                    <span>{{ content.data[rowKey][column].split('|')[0] }}</span>
+                    <span>{{
+                      content.data[rowKey][column].split("|")[0]
+                    }}</span>
                   </a>
                 </div>
               </div>
               <div v-else>
-                {{ content.data[rowKey][column].replace(/\s/g, '') }}
+                {{ content.data[rowKey][column].replace(/\s/g, "") }}
               </div>
             </CTableDataCell>
           </CTableRow>
@@ -79,28 +93,28 @@ import { right } from '@popperjs/core'
 </style>
 
 <script>
-import Papa from 'papaparse'
+import Papa from "papaparse";
 export default {
   created: function () {
-    this.parseFile()
+    this.parseFile();
   },
   methods: {
     parseFile() {
-      console.log('PARSING')
+      console.log("PARSING");
       Papa.parse(this.raw, {
         header: true,
         skipEmptyLines: true,
         complete: (results) => {
-          this.content = results
-        }
-      })
-    }
+          this.content = results;
+        },
+      });
+    },
   },
   mounted() {
-    document.title = "Flight Log"
+    document.title = "Flight Log";
   },
   data() {
-    let content = {}
+    let content = {};
     let raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat
 2023/09/08,B62036,M3125J|https://cdn.jetphotos.com/400/6/640394_1693483459.jpg|https://cdn.jetphotos.com/full/6/640394_1693483459.jpg,DTW,BOS,621,09:09,10:33,JBU,A223,18F
 2023/09/02,B61037,N318JB|https://cdn.jetphotos.com/400/6/90637_1652053492.jpg|https://cdn.jetphotos.com/full/6/90637_1652053492.jpg,BOS,DTW,621,17:26,19:12,JBU,E190,6D
@@ -160,11 +174,11 @@ export default {
 2010/08/31,PR336,N/A|https://cdn.jetphotos.com/400/4/79172_1321131511.jpg|https://cdn.jetphotos.com/full/4/79172_1321131511.jpg,MNL,PVG,1152,12:05,15:50,PAL,A333,N/A
 2010/08/26,PR337,N/A|https://cdn.jetphotos.com/400/6/17299_1586238940.jpg|https://cdn.jetphotos.com/full/6/17299_1586238940.jpg,PVG,MNL,1152,16:55,20:50,PAL,A333,N/A
 2010/06/29,NX110,N/A|https://cdn.jetphotos.com/400/2/49528_1214997745.jpg|https://cdn.jetphotos.com/full/2/49528_1214997745.jpg,MFM,PVG,803,??,??,AMU,A319,N/A
-2010/06/25,NX107,N/A|https://cdn.jetphotos.com/400/1/56248_1117980108.jpg|https://cdn.jetphotos.com/full/1/56248_1117980108.jpg,PVG,MFM,803,??,??,AMU,A319,N/A`
+2010/06/25,NX107,N/A|https://cdn.jetphotos.com/400/1/56248_1117980108.jpg|https://cdn.jetphotos.com/full/1/56248_1117980108.jpg,PVG,MFM,803,??,??,AMU,A319,N/A`;
     return {
       raw: raw,
-      content: content
-    }
-  }
-}
+      content: content,
+    };
+  },
+};
 </script>

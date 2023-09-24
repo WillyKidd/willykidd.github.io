@@ -3,102 +3,136 @@
     <div id="container">
       <div id="scoreContainer" class="buttonPressed">
         <div id="flag">
-          <span id="flagIndicator" class="buttonPressed">{{ this.flagStr }}</span>
+          <span id="flagIndicator" class="buttonPressed">{{
+            this.flagStr
+          }}</span>
         </div>
         <div id="face" class="noSelect">
-          <img :src='require(`@/assets/emoji/${faceType}.svg`)' 
+          <img
+            :src="require(`@/assets/emoji/${faceType}.svg`)"
             class="faceImg, noSelect, buttonNormal"
-            @mousedown="e => buttonPress(e)"
-            @mouseup="e => {
-                        buttonRelease(e);
-                        getFace(0);
-                        init(this.row, this.col, this.bombPercentage);
-                      }"
-            @mouseleave="e => buttonRelease(e)"
-          >
+            @mousedown="(e) => buttonPress(e)"
+            @mouseup="
+              (e) => {
+                buttonRelease(e);
+                getFace(0);
+                init(this.row, this.col, this.bombPercentage);
+              }
+            "
+            @mouseleave="(e) => buttonRelease(e)"
+          />
         </div>
       </div>
       <div id="tableContainer">
         <table id="table" class="buttonPressed" oncontextmenu="return false;">
           <tbody id="tableBody">
-              <tr v-for="r in rowIndex" :key="r">
-                  <td v-for="c in colIndex" :key="c" class="buttonNormal cellFixed"
-                    @mousedown="e => {
-                      buttonPress(e);
-                      getFace(1);
-                    }"
-                    @mouseup.left="e => {
-                      if (e.target.classList.contains('flagged')) {
-                        return;
-                      }
-                      uncoverWrap(r, c);  // confirm uncover of cell
-                      buttonReleaseCell(e);
-                      getFace(0);
-                      e.target.classList.add('noClick');
-                    }"
-                    @mouseout="e => {
-                      buttonRelease(e);
-                    }"
-                    @mouseup.right="e => {
-                      toggleFlag(r, c, e);
-                    }"
-                  >
-                  </td>
-              </tr>
+            <tr v-for="r in rowIndex" :key="r">
+              <td
+                v-for="c in colIndex"
+                :key="c"
+                class="buttonNormal cellFixed"
+                @mousedown="
+                  (e) => {
+                    buttonPress(e);
+                    getFace(1);
+                  }
+                "
+                @mouseup.left="
+                  (e) => {
+                    if (e.target.classList.contains('flagged')) {
+                      return;
+                    }
+                    uncoverWrap(r, c); // confirm uncover of cell
+                    buttonReleaseCell(e);
+                    getFace(0);
+                    e.target.classList.add('noClick');
+                  }
+                "
+                @mouseout="
+                  (e) => {
+                    buttonRelease(e);
+                  }
+                "
+                @mouseup.right="
+                  (e) => {
+                    toggleFlag(r, c, e);
+                  }
+                "
+              ></td>
+            </tr>
           </tbody>
-        </table>  
+        </table>
       </div>
     </div>
     <div id="optionTab">
-        <div id="optionContent">#Rows:</div>
-        <input v-model.lazy="rowInput" class="optionInput" placeholder=">=7" />
-        <div id="optionContent">#Columns:</div>
-        <input v-model.lazy="colInput" class="optionInput" placeholder=">=7" />
-        <div id="optionContent">%Bombs:</div>
-        <input v-model.lazy="bombPercentageInput" class="optionInput" placeholder="0-1" />
-        <div class="optionButton buttonNormal"
-          @mousedown="e => buttonPress(e)"
-          @mouseup.left="e => {
+      <div id="optionContent">#Rows:</div>
+      <input v-model.lazy="rowInput" class="optionInput" placeholder=">=7" />
+      <div id="optionContent">#Columns:</div>
+      <input v-model.lazy="colInput" class="optionInput" placeholder=">=7" />
+      <div id="optionContent">%Bombs:</div>
+      <input
+        v-model.lazy="bombPercentageInput"
+        class="optionInput"
+        placeholder="0-1"
+      />
+      <div
+        class="optionButton buttonNormal"
+        @mousedown="(e) => buttonPress(e)"
+        @mouseup.left="
+          (e) => {
             buttonRelease(e);
             updateInit();
-          }"
-        >
-          customize
-        </div>
-        <div class="optionButton buttonNormal"
-          @mousedown="e => buttonPress(e)"
-          @mouseup.left="e => {
+          }
+        "
+      >
+        customize
+      </div>
+      <div
+        class="optionButton buttonNormal"
+        @mousedown="(e) => buttonPress(e)"
+        @mouseup.left="
+          (e) => {
             buttonRelease(e);
             updateInit(1);
-          }"
-        >
-          beginner
-        </div>
-        <div class="optionButton buttonNormal"
-          @mousedown="e => buttonPress(e)"
-          @mouseup.left="e => {
+          }
+        "
+      >
+        beginner
+      </div>
+      <div
+        class="optionButton buttonNormal"
+        @mousedown="(e) => buttonPress(e)"
+        @mouseup.left="
+          (e) => {
             buttonRelease(e);
             updateInit(2);
-          }"
-        >
-          intermediate
-        </div>
-        <div class="optionButton buttonNormal"
-          @mousedown="e => buttonPress(e)"
-          @mouseup.left="e => {
+          }
+        "
+      >
+        intermediate
+      </div>
+      <div
+        class="optionButton buttonNormal"
+        @mousedown="(e) => buttonPress(e)"
+        @mouseup.left="
+          (e) => {
             buttonRelease(e);
             updateInit(3);
-          }"
-        >
-          master
-        </div>
+          }
+        "
+      >
+        master
+      </div>
     </div>
-    <div 
-      id="optionShow" 
-      @mouseup.left="e => {
-        toggleOption();
-      }">
-        <div>options</div>
+    <div
+      id="optionShow"
+      @mouseup.left="
+        (e) => {
+          toggleOption();
+        }
+      "
+    >
+      <div>options</div>
     </div>
   </div>
 </template>
@@ -143,7 +177,7 @@ class Board {
     this.flagCnt = Math.floor(row * col * bombPercentage);
     this.foundCnt = 0;
     this.bombCnt = Math.floor(row * col * bombPercentage);
-    this.GameState = GameState.Start
+    this.GameState = GameState.Start;
     this.cells = new Array(row);
     for (let i = 0; i < row; i++) {
       this.cells[i] = new Array(col);
@@ -173,8 +207,8 @@ class Board {
   fillBombNum() {
     for (let i = 0; i < this.col; i++) {
       for (let j = 0; j < this.row; j++) {
-        for (let m = Math.max(0, i-1); m < Math.min(this.row, i+2); m++) {
-          for (let n = Math.max(0, j-1); n < Math.min(this.col, j+2); n++) {
+        for (let m = Math.max(0, i - 1); m < Math.min(this.row, i + 2); m++) {
+          for (let n = Math.max(0, j - 1); n < Math.min(this.col, j + 2); n++) {
             if (i == m && j == n) {
               continue;
             }
@@ -213,15 +247,18 @@ class Board {
   // >= 0 bomb count
   uncover(x, y) {
     if (this.cells[x][y].state == CellState.Uncovered) {
-      return -2;  // should never happen
+      return -2; // should never happen
     }
     this.cells[x][y].state = CellState.Uncovered;
     if (this.cells[x][y].isBomb == true) {
       this.state = GameState.Dead;
-      return -1;  // lost
+      return -1; // lost
     }
     this.foundCnt++;
-    if (this.foundCnt == this.row * this.col - this.bombCnt && this.state != GameState.Dead) {
+    if (
+      this.foundCnt == this.row * this.col - this.bombCnt &&
+      this.state != GameState.Dead
+    ) {
       this.state = GameState.Won;
     }
     return this.cells[x][y].bombNum;
@@ -242,43 +279,50 @@ export default {
       bombPercentageInput: null,
       flagStr: "0038",
       optionShown: true,
-    }
+    };
   },
   computed: {
-    containerOuterHeight() {  // TODO: height that fits better?
+    containerOuterHeight() {
+      // TODO: height that fits better?
       return Math.max(Math.floor(1.6 * this.row + 10), 40).toString() + "rem";
-    }
+    },
   },
   mounted() {
-    document.title = "Minesweeper"
+    document.title = "Minesweeper";
   },
   methods: {
     boom() {
-      document.getElementById("tableBody").classList.add('noClick');
+      document.getElementById("tableBody").classList.add("noClick");
       for (let i = 0; i < this.row; i++) {
         for (let j = 0; j < this.col; j++) {
           const ret = this.board.uncover(i, j);
           if (ret == -1) {
-            const element = document.getElementById("tableBody").rows[i].cells[j];
-            if (element.classList.contains('flagged')) {
-              element.classList.remove('flagged');
-              element.classList.add('boom2', 'uncovered', 'noSelect', 'noClick');
+            const element =
+              document.getElementById("tableBody").rows[i].cells[j];
+            if (element.classList.contains("flagged")) {
+              element.classList.remove("flagged");
+              element.classList.add(
+                "boom2",
+                "uncovered",
+                "noSelect",
+                "noClick",
+              );
             } else {
-              element.classList.add('boom', 'uncovered', 'noSelect', 'noClick');
+              element.classList.add("boom", "uncovered", "noSelect", "noClick");
             }
           }
         }
       }
     },
     buttonPress(event) {
-      event.target.classList.add('buttonPressed');
+      event.target.classList.add("buttonPressed");
     },
     buttonReleaseCell(event) {
-      event.target.classList.remove('buttonPressed');
-      event.target.classList.add('noSelect', 'noClick');
+      event.target.classList.remove("buttonPressed");
+      event.target.classList.add("noSelect", "noClick");
     },
     buttonRelease(event) {
-      event.target.classList.remove('buttonPressed');
+      event.target.classList.remove("buttonPressed");
     },
     clearStyle() {
       const body = document.getElementById("tableBody");
@@ -290,24 +334,39 @@ export default {
       for (let i = 0; i < rowNum; i++) {
         for (let j = 0; j < colNum; j++) {
           const element = body.rows[i].cells[j];
-            element.classList.remove('boom', 'uncovered', 'boomRed', 
-            'flagged', 'bomb0', 'bomb1', 'bomb2', 'bomb3','bomb4', 
-            'bomb5', 'bomb6', 'bomb7', 'bomb8', 'noClick', 'boom2', 'noSelect');
-            element.classList.add('bomb0');
+          element.classList.remove(
+            "boom",
+            "uncovered",
+            "boomRed",
+            "flagged",
+            "bomb0",
+            "bomb1",
+            "bomb2",
+            "bomb3",
+            "bomb4",
+            "bomb5",
+            "bomb6",
+            "bomb7",
+            "bomb8",
+            "noClick",
+            "boom2",
+            "noSelect",
+          );
+          element.classList.add("bomb0");
         }
       }
-      document.getElementById("tableBody").classList.remove('noClick');
+      document.getElementById("tableBody").classList.remove("noClick");
     },
     getFace(type) {
       const state = this.board.state;
-      const rand = Math.floor(Math.random() * 2)
+      const rand = Math.floor(Math.random() * 2);
       if (state == GameState.Dead) {
         this.faceType = "dead" + rand;
         return;
       }
       if (state == GameState.Won) {
         this.faceType = "win";
-        document.getElementById("tableBody").classList.add('noClick');
+        document.getElementById("tableBody").classList.add("noClick");
         this.$confetti.start();
         return;
       }
@@ -319,9 +378,9 @@ export default {
     },
     init(row, col, bombPercentage) {
       this.$confetti.stop();
-      this.rowIndex = Array.from(Array(parseInt(row)).keys()),
-      this.colIndex = Array.from(Array(parseInt(col)).keys()),
-      this.board = new Board(row, col, bombPercentage);
+      (this.rowIndex = Array.from(Array(parseInt(row)).keys())),
+        (this.colIndex = Array.from(Array(parseInt(col)).keys())),
+        (this.board = new Board(row, col, bombPercentage));
       this.clearStyle();
       this.updateFlagCnt();
       this.getFace(0);
@@ -350,11 +409,16 @@ export default {
       const ret = this.board.uncover(row, col);
       const element = document.getElementById("tableBody").rows[row].cells[col];
       if (ret >= 0) {
-        element.classList.remove('flagged');
-        element.classList.add(`bomb${ret}`, 'uncovered', 'noSelect', 'noClick');
-      }
-      else if (ret == -1) {
-        element.classList.add('boom', 'uncovered', 'boomRed', 'noSelect', 'noClick');
+        element.classList.remove("flagged");
+        element.classList.add(`bomb${ret}`, "uncovered", "noSelect", "noClick");
+      } else if (ret == -1) {
+        element.classList.add(
+          "boom",
+          "uncovered",
+          "boomRed",
+          "noSelect",
+          "noClick",
+        );
         this.boom();
       }
       return ret;
@@ -363,17 +427,26 @@ export default {
       const ret = this.uncover(r, c);
       if (ret == -2) return;
       if (ret == -1) return;
-      if (ret == 0) {   // not a bomb, try uncover nearby
-        for (let i = Math.max(r-1, 0); i <= Math.min(r+1, this.row-1); i++) {
-          for (let j = Math.max(c-1, 0); j <= Math.min(c+1, this.col-1); j++) {
+      if (ret == 0) {
+        // not a bomb, try uncover nearby
+        for (
+          let i = Math.max(r - 1, 0);
+          i <= Math.min(r + 1, this.row - 1);
+          i++
+        ) {
+          for (
+            let j = Math.max(c - 1, 0);
+            j <= Math.min(c + 1, this.col - 1);
+            j++
+          ) {
             if (i == r && j == c) continue;
-            this.uncoverWrap(i, j)
+            this.uncoverWrap(i, j);
           }
         }
       }
       if (this.board.state == GameState.Won) {
         this.faceType = "win";
-        document.getElementById("tableBody").classList.add('noClick');
+        document.getElementById("tableBody").classList.add("noClick");
         this.$confetti.start();
       }
     },
@@ -386,7 +459,7 @@ export default {
       this.colInput = "8";
       this.bombPercentageInput = "0.15";
     },
-    updateInit(type=0) {
+    updateInit(type = 0) {
       let r, c, bp;
       if (type == 0) {
         r = parseInt(this.rowInput, 10);
@@ -417,20 +490,20 @@ export default {
       this.col = c;
       this.bombPercentage = bp;
       let width = 25 * c;
-      let height = 25 * r; 
+      let height = 25 * r;
       document.getElementById("tableContainer").style.width = `${width}px`;
       document.getElementById("tableContainer").style.height = `${height}px`;
       width += 40;
       height += 100;
       document.getElementById("container").style.width = `${width}px`;
       document.getElementById("container").style.height = `${height}px`;
-      const scWidth = Math.min(width-40, 400);
+      const scWidth = Math.min(width - 40, 400);
       document.getElementById("scoreContainer").style.width = `${scWidth}px`;
       this.getFace(0);
       this.init(r, c, bp);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -445,7 +518,7 @@ export default {
   height: 500px;
   margin-top: 30px;
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
   left: 0;
   right: 0;
   position: absolute;
@@ -459,7 +532,7 @@ export default {
   background-color: #aaa;
 }
 #tableContainer {
-  width:400px;
+  width: 400px;
   height: 400px;
   margin-left: auto;
   margin-right: auto;
@@ -528,11 +601,11 @@ export default {
   margin-top: 30px;
   margin-left: 112.5px;
   padding-right: 8px;
-  width:40px;
-  height:70px;
+  width: 40px;
+  height: 70px;
   text-orientation: sideways;
   writing-mode: vertical-rl;
-  background:#ccc;
+  background: #ccc;
   border-top: solid 2.5px #eee;
   border-right: solid 2.5px #666;
   border-bottom: solid 2.5px #666;
@@ -553,10 +626,10 @@ export default {
   display: inline-flex;
   position: fixed;
   margin-top: 30px;
-  width:115px;
-  height:320px;
+  width: 115px;
+  height: 320px;
   writing-mode: vertical-rl;
-  background:#ccc;
+  background: #ccc;
   border-top: solid 2.5px #eee;
   border-bottom: solid 2.5px #666;
   border-right: solid 2.5px #666;
@@ -593,8 +666,8 @@ export default {
   height: 25px;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space:nowrap;
-  background-position: center;  
+  white-space: nowrap;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 80%;
   cursor: pointer;
@@ -627,55 +700,55 @@ export default {
   cursor: pointer;
 }
 .bomb0 {
-  background-image: url('../assets/num/0.png');
+  background-image: url("../assets/num/0.png");
 }
 .bomb1 {
-  background-image: url('../assets/num/1.png');
+  background-image: url("../assets/num/1.png");
 }
 .bomb2 {
-  background-image: url('../assets/num/2.png');
+  background-image: url("../assets/num/2.png");
 }
 .bomb3 {
-  background-image: url('../assets/num/3.png');
+  background-image: url("../assets/num/3.png");
 }
 .bomb4 {
-  background-image: url('../assets/num/4.png');
+  background-image: url("../assets/num/4.png");
 }
 .bomb5 {
-  background-image: url('../assets/num/5.png');
+  background-image: url("../assets/num/5.png");
 }
 .bomb6 {
-  background-image: url('../assets/num/6.png');
+  background-image: url("../assets/num/6.png");
 }
 .bomb7 {
-  background-image: url('../assets/num/7.png');
+  background-image: url("../assets/num/7.png");
 }
 .bomb8 {
-  background-image: url('../assets/num/8.png');
+  background-image: url("../assets/num/8.png");
 }
 .boom {
-  background-image: url('../assets/num/9.png');
+  background-image: url("../assets/num/9.png");
 }
 .boom2 {
-  background-image: url('../assets/num/11.png');
+  background-image: url("../assets/num/11.png");
 }
 .boomRed {
   background-color: red;
 }
 .flagged {
-  background-image: url('../assets/num/10.png');
+  background-image: url("../assets/num/10.png");
   background-size: auto 100%;
 }
 .noClick {
-   pointer-events: none;
+  pointer-events: none;
 }
 .noSelect {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 .uncovered {

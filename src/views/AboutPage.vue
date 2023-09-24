@@ -11,12 +11,19 @@
     <v-col class="text-container">
       <div class="text">
         <h1 class="hi-text">About me</h1>
-        <p class="p-text">I am currently a master's student studying computer science at Brown University. 
-          I spent the first 20 years of my life living in Shanghai, where I obtained my bachelor's degree from Shanghai Jiao Tong University.
-          <br><br>
-          I am interested in computer systems, and I have previously worked at a startup developing databases in Rust, as well as research on encrypted databases.
-          <br><br>
-          Outside of CS, I enjoy traveling around (see my flight log), taking pictures, and cooking (still learning..). I also have a growing collection of diecast model aircrafts, and I am trying to keep its size under control ;)
+        <p class="p-text">
+          I am currently a master's student studying computer science at Brown
+          University. I spent the first 20 years of my life living in Shanghai,
+          where I obtained my bachelor's degree from Shanghai Jiao Tong
+          University. <br /><br />
+          I am interested in computer systems, and I have previously worked at a
+          startup developing databases in Rust, as well as research on encrypted
+          databases.
+          <br /><br />
+          Outside of CS, I enjoy traveling around (see my flight log), taking
+          pictures, and cooking (still learning..). I also have a growing
+          collection of diecast model aircrafts, and I am trying to keep its
+          size under control ;)
         </p>
       </div>
     </v-col>
@@ -32,7 +39,7 @@
 
 .section {
   margin: 0;
-  color: rgba(60,60,60);
+  color: rgba(60, 60, 60);
   position: relative;
 }
 
@@ -44,7 +51,10 @@
 
 #hi-container {
   background: linear-gradient(
-    to right, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.5) 50%,rgba(255,255,255,0) 100%
+    to right,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
   padding-bottom: 0;
   padding-left: 80px;
