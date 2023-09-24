@@ -588,7 +588,7 @@ export default {
   text-align: center;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  font-family: "Courier New", monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: 800;
   background: rgb(37, 37, 37);
   color: #ffdd1b;

@@ -18,6 +18,7 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
+npx prettier --write "src/**/*.+(js|jsx|json|vue)" 
 ```
 
 ### Customize configuration

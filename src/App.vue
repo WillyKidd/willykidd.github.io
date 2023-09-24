@@ -131,11 +131,11 @@ export default {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .nav-link {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: "Courier New", Courier, monospace;
   font-weight: bold;
 }
 </style>

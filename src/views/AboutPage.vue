@@ -2,16 +2,16 @@
   <v-row class="section" id="hi-section">
     <v-col id="hi-container">
       <div class="text">
-        <h1 class="hi-text">Hi There!</h1>
-        <h1 class="hi-text">I am Weili :-)</h1>
+        <h1 class="hi-text-1 text">Hi There!</h1>
+        <h1 class="hi-text-2 text">I am Weili :)</h1>
       </div>
     </v-col>
   </v-row>
   <v-row class="section">
     <v-col class="text-container">
-      <div class="text">
-        <h1 class="hi-text">About me</h1>
-        <p class="p-text">
+      <div>
+        <h1 class="hi-text-1 text">About me</h1>
+        <p class="desc-text text">
           I am currently a master's student studying computer science at Brown
           University. I spent the first 20 years of my life living in Shanghai,
           where I obtained my bachelor's degree from Shanghai Jiao Tong
@@ -33,22 +33,24 @@
 </template>
 
 <style lang="scss" scoped>
-.hi-text {
+.text {
   font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+.hi-text-1 {
   font-size: 50px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+.hi-text-2 {
+  font-size: 40px;
+}
+.desc-text {
+  font-size: 25px;
 }
 
 .section {
   margin: 0;
   color: rgba(60, 60, 60);
   position: relative;
-}
-
-.p-text {
-  font-weight: bold;
-  font-size: 25px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 #hi-container {

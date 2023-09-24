@@ -12,7 +12,7 @@ import { right } from "@popperjs/core";
 
 <template>
   <div style="padding: 2rem 4rem 1rem 4rem">
-    <h2 style="padding: 0em 1rem 0rem 1rem; display: inline">
+    <h2 class="text">
       Flight Log
       <img
         style="display: inline; width: 35px"
@@ -20,9 +20,10 @@ import { right } from "@popperjs/core";
         alt="plane"
       />
     </h2>
-    <div>
-      <img class="rainbow-img" src="../assets/color.png" alt="rainbow" />
-    </div>
+    <br />
+    <h6 class="text">
+      Note: hover on reg, airline and airport code to see details!
+    </h6>
     <div class="ft-container">
       <CTable class="flight-table" hover striped borderless>
         <CTableHead>
@@ -49,7 +50,29 @@ import { right } from "@popperjs/core";
               v-for="(column, columnKey) in content.meta.fields"
               v-bind:key="'row-' + rowKey + '-column-' + columnKey"
             >
-              <div v-if="column == 'Reg'">
+              <div v-if="column == 'Airline'">
+                <div
+                  v-tooltip="{
+                    content: airlines[content.data[rowKey][column]],
+                    html: true,
+                    placement: right,
+                  }"
+                >
+                  {{ content.data[rowKey][column].replace(/\s/g, "") }}
+                </div>
+              </div>
+              <div v-else-if="column == 'From' || column == 'To'">
+                <div
+                  v-tooltip="{
+                    content: airports[content.data[rowKey][column]],
+                    html: true,
+                    placement: right,
+                  }"
+                >
+                  {{ content.data[rowKey][column].replace(/\s/g, "") }}
+                </div>
+              </div>
+              <div v-else-if="column == 'Reg'">
                 <div
                   v-tooltip="{
                     content:
@@ -81,14 +104,17 @@ import { right } from "@popperjs/core";
 <style scoped>
 .ft-container {
   padding: 0.5rem 2rem 0rem 2rem;
+  font-family: "Courier New", Courier, monospace;
 }
 .flight-table {
   padding: 0.5rem 2rem 0rem 2rem;
   opacity: 100%;
 }
-.rainbow-img {
-  width: 100%;
-  height: 5px;
+.text {
+  padding: 0em 1rem 0rem 1rem;
+  display: inline;
+  font-family: Courier, Courier, monospace;
+  font-weight: bold;
 }
 </style>
 
@@ -115,8 +141,61 @@ export default {
   },
   data() {
     let content = {};
-    let raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat
-2023/09/08,B62036,M3125J|https://cdn.jetphotos.com/400/6/640394_1693483459.jpg|https://cdn.jetphotos.com/full/6/640394_1693483459.jpg,DTW,BOS,621,09:09,10:33,JBU,A223,18F
+    const airlines = {
+      AMU: "Air Macau",
+      ARG: "Aerolíneas Argentinas",
+      CCA: "Air China",
+      CDG: "Shandong Airlines",
+      CES: "China Eastern Airlines",
+      CHH: "Hainan Airlines",
+      CPA: "Cathay Pacific",
+      CQH: "Spring Airlines",
+      CSH: "Shanghai Airlines",
+      CSN: "China Southern Airlines",
+      CXA: "Xiamen Air",
+      DKH: "Juneyao Airlines",
+      DSM: "LATAM Argentina",
+      GAP: "AirPhil Express",
+      HDA: "Dragon Air",
+      JBU: "JetBlue",
+      MXY: "Breeze Airways",
+      PAL: "Philippine Airlines",
+      RLH: "Ruili Airlines",
+      THY: "Turkish Airlines",
+    };
+    const airports = {
+      AEP: "Buenos Aires Aeroparque Jorge Newbery",
+      BKK: "Bangkok Suvarnabhumi",
+      BOS: "Boston Logan",
+      CAN: "Guangzhou Baiyun",
+      DLU: "Dali Huangcaoba",
+      DTW: "Detroit Metropolitan",
+      DYG: "Zhangjiajie Hehua",
+      EZE: "Buenos Aires Ministro Pistarini",
+      FTE: "El Calafate",
+      GRU: "São Paulo Guarulhos",
+      HKG: "Hong Kong Chek Lap Kok",
+      IST: "Istanbul",
+      IGR: "Cataratas del Iguazú",
+      JJN: "Quanzhou Jinjiang",
+      KMG: "Kunming Changshui",
+      LAX: "Los Angeles",
+      MFM: "Macau",
+      MNL: "Manila Ninoy Aquino",
+      MPH: "Catican/Boracay",
+      PVD: "Rhode Island T.F. Green",
+      PVG: "Shanghai Pudong",
+      SHA: "Shanghai Hongqiao",
+      SZX: "Shenzhen Bao'an",
+      TFU: "Chengdu Tianfu",
+      USH: "Ushuaia Malvinas Argentinas",
+      WUX: "Sunan Shuofang",
+      XMN: "Xiamen Gaoqi",
+      XIY: "Xi'an Xianyang",
+      ZHA: "Zhanjiang",
+    };
+    const raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat
+2023/09/08,B62036,N3125J|https://cdn.jetphotos.com/400/6/640394_1693483459.jpg|https://cdn.jetphotos.com/full/6/640394_1693483459.jpg,DTW,BOS,621,09:09,10:33,JBU,A223,18F
 2023/09/02,B61037,N318JB|https://cdn.jetphotos.com/400/6/90637_1652053492.jpg|https://cdn.jetphotos.com/full/6/90637_1652053492.jpg,BOS,DTW,621,17:26,19:12,JBU,E190,6D
 2023/08/30,MX701,N216BZ|https://cdn.jetphotos.com/400/5/1226511_1688864273.jpg|https://cdn.jetphotos.com/full/5/1226511_1688864273.jpg,LAX,PVD,2587,12:26,20:23,MXY,A223,5A
 2023/08/11,PR102,RP-C7777|https://cdn.jetphotos.com/400/5/96935_1652696389.jpg|https://cdn.jetphotos.com/full/5/96935_1652696389.jpg,MNL,LAX,7296,22:39,20:11,PAL,B77W,51A
@@ -125,7 +204,7 @@ export default {
 2023/06/30,HO1059,B-8068|https://cdn.jetphotos.com/400/6/48107_1625045717.jpg|https://cdn.jetphotos.com/full/6/48107_1625045717.jpg,SHA,TFU,1107,17:24,20:05,DKH,A321,41K
 2023/05/15,9C8922,B-6852|https://cdn.jetphotos.com/400/5/83777_1559148550.jpg|https://cdn.jetphotos.com/full/5/83777_1559148550.jpg,HKG,PVG,772,18:05,20:11,CQH,A320,7A
 2023/05/12,CX365,B-LAA|https://cdn.jetphotos.com/400/5/1606889_1686112376.jpg|https://cdn.jetphotos.com/full/5/1606889_1686112376.jpg,PVG,HKG,779,10:06,12:16,CPA,A333,54K
-2021/05/07,DR5310,B-7866|https://cdn.jetphotos.com/400/6/99111_1621348608.jpg|https://cdn.jetphotos.com/full/6/99111_1621348608.jpg,XYI,WUX,606,11:38,14:05,RLH,B738,7A
+2021/05/07,DR5310,B-7866|https://cdn.jetphotos.com/400/6/99111_1621348608.jpg|https://cdn.jetphotos.com/full/6/99111_1621348608.jpg,XIY,WUX,606,11:38,14:05,RLH,B738,7A
 2021/05/04,CZ5791,B-6135|https://cdn.jetphotos.com/400/6/76682_1645366796.jpg|https://cdn.jetphotos.com/full/6/76682_1645366796.jpg,PVG,XIY,688,10:22,12:40,CSN,A332,45K
 2020/02/02,MU506,B-6926|https://cdn.jetphotos.com/400/5/66757_1582880782.jpg|https://cdn.jetphotos.com/full/5/66757_1582880782.jpg,HKG,PVG,781,20:20,22:54,CES,A321,35A
 2020/02/02,TK70,TC-LJE|https://cdn.jetphotos.com/400/5/16090_1580077654.jpg|https://cdn.jetphotos.com/full/5/16090_1580077654.jpg,IST,HKG,4980,02:00,17:00,THY,B77W,16A
@@ -178,6 +257,8 @@ export default {
     return {
       raw: raw,
       content: content,
+      airlines: airlines,
+      airports: airports,
     };
   },
 };
