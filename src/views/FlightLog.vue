@@ -21,9 +21,7 @@ import { right } from "@popperjs/core";
       />
     </h2>
     <br />
-    <h6 class="text">
-      Note: hover on reg, airline and airport code to see details!
-    </h6>
+    <h6 class="text">Hover on reg, airline and airport code to see details!</h6>
     <div class="ft-container">
       <CTable class="flight-table" hover striped borderless>
         <CTableHead>
@@ -144,6 +142,7 @@ export default {
   data() {
     let content = {};
     const airlines = {
+      AAL: "American Airlines",
       AMU: "Air Macau",
       ARG: "Aerolíneas Argentinas",
       CCA: "Air China",
@@ -170,6 +169,7 @@ export default {
       BKK: "Bangkok Suvarnabhumi",
       BOS: "Boston Logan",
       CAN: "Guangzhou Baiyun",
+      CLT: "Charlotte Douglas",
       DLU: "Dali Huangcaoba",
       DTW: "Detroit Metropolitan",
       DYG: "Zhangjiajie Hehua",
@@ -187,6 +187,7 @@ export default {
       MPH: "Catican/Boracay",
       PVD: "Rhode Island T.F. Green",
       PVG: "Shanghai Pudong",
+      SEA: "Seattle Tacoma",
       SHA: "Shanghai Hongqiao",
       SZX: "Shenzhen Bao'an",
       TFU: "Chengdu Tianfu",
@@ -197,6 +198,9 @@ export default {
       ZHA: "Zhanjiang",
     };
     const raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat
+2023/11/28,AA1254,N576UW|https://cdn.jetphotos.com/400/5/62545_1605700249.jpg|https://cdn.jetphotos.com/full/5/62545_1605700249.jpg,CLT,PVD,683,07:31,08:57,AAL,A321,14F
+2023/11/27,AA611,N563UW|https://cdn.jetphotos.com/400/5/21866_1566281141.jpg|https://cdn.jetphotos.com/full/5/21866_1566281141.jpg,SEA,CLT,2275,22:22,05:38,AAL,A321,21F
+2023/11/22,B6197,N961JT|https://cdn.jetphotos.com/400/6/466794_1693976928.jpg|https://cdn.jetphotos.com/full/6/466794_1693976928.jpg,BOS,SEA,2489,20:22,23:19,JBU,A321,16F
 2023/09/08,B62036,N3125J|https://cdn.jetphotos.com/400/6/640394_1693483459.jpg|https://cdn.jetphotos.com/full/6/640394_1693483459.jpg,DTW,BOS,621,09:09,10:33,JBU,A223,18F
 2023/09/02,B61037,N318JB|https://cdn.jetphotos.com/400/6/90637_1652053492.jpg|https://cdn.jetphotos.com/full/6/90637_1652053492.jpg,BOS,DTW,621,17:26,19:12,JBU,E190,6D
 2023/08/30,MX701,N216BZ|https://cdn.jetphotos.com/400/5/1226511_1688864273.jpg|https://cdn.jetphotos.com/full/5/1226511_1688864273.jpg,LAX,PVD,2587,12:26,20:23,MXY,A223,5A
