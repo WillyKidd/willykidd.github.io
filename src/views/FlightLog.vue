@@ -85,7 +85,7 @@ import { right } from "@popperjs/core";
                   }"
                 >
                   <div>
-                    <img :src="require(`@/assets/img/${content.data[rowKey][column].split('|')[0]}.gif`)" height="12" class="reg-flag">
+                    <img :src="require(`@/assets/flag/${content.data[rowKey][column].split('|')[0]}.png`)" height="12" class="reg-flag">
                     <a
                       :href="'https://cdn.jetphotos.com/full' + content.data[rowKey][column].split('|')[2]"
                       class="black-link"
