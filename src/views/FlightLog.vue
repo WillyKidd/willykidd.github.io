@@ -210,6 +210,7 @@ export default {
       HKG: "Hong Kong Chek Lap Kok",
       IST: "Istanbul",
       IGR: "Cataratas del Iguazú",
+      JFK: "New York John F. Kennedy",
       JJN: "Quanzhou Jinjiang",
       KMG: "Kunming Changshui",
       LAX: "Los Angeles",
@@ -228,8 +229,10 @@ export default {
       XIY: "Xi'an Xianyang",
       ZHA: "Zhanjiang",
     };
-    const raw = `Date,Flight,Reg,From,To,Dist,Dep,Arr,Airline,Aircraft,Seat
-2024/03/29,B61196,N|N779JB|/6/1248096_1705349289.jpg,PVD,FLL,1190,21:02,23:50,JBU,A320-232,19A
+    const raw = `Date,Flight,Reg,From,To,Miles,Dep,Arr,Airline,Aircraft,Seat
+2024/04/27,PR336,RP|RP-C8782|/5/431834_1708222822.jpg,MNL,PVG,1151,11:57,14:53,PAL,A330-343,54A
+2024/04/26,PR127,RP|RP-C3508|/6/33664_1567734789.jpg,JFK,MNL,8506,04:17,08:14,PAL,A350-941,54K
+2024/03/29,B61196,N|N779JB|/6/1248096_1705349289.jpg,FLL,PVD,1190,21:02,23:50,JBU,A320-232,19A
 2024/03/24,B61197,N|N644JB|/6/1386229_1707746973.jpg,PVD,FLL,1190,06:25,09:15,JBU,A320-232,8F
 2024/02/10,UA3420,N|N729YX|/5/612886_1707409232.jpg,EWR,BOS,200,14:50,15:35,RPA,ERJ-175LR,18A
 2024/02/10,UA4563,N|N536GJ|/5/1439056_1704163014.jpg,DTW,EWR,486,12:06,13:12,GJS,CRJ-550,16A
