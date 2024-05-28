@@ -37,16 +37,6 @@ import {
         <CCollapse class="navbar-collapse" :visible="visible">
           <CNavbarNav class="me-auto mb-2 mb-lg-0">
             <CNavItem class="nav-item">
-              <a class="nav-link" href="/about">
-                <img
-                  style="display: inline; width: 25px"
-                  src="@/assets/emoji/about.svg"
-                  alt="slide"
-                />
-                About
-              </a>
-            </CNavItem>
-            <CNavItem class="nav-item">
               <a class="nav-link" href="/gallery">
                 <img
                   style="display: inline; width: 25px"
