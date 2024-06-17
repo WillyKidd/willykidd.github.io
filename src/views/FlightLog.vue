@@ -207,11 +207,13 @@ export default {
       IGR: "Cataratas del Iguazú",
       JFK: "New York John F. Kennedy",
       JJN: "Quanzhou Jinjiang",
+      KIX: "Osaka Kansai",
       KMG: "Kunming Changshui",
       LAX: "Los Angeles",
       MFM: "Macau",
       MNL: "Manila Ninoy Aquino",
       MPH: "Catican/Boracay",
+      NGO: "Chubu Centrair, Nagoya",
       PVD: "Rhode Island T.F. Green",
       PVG: "Shanghai Pudong",
       SEA: "Seattle Tacoma",
@@ -225,6 +227,9 @@ export default {
       ZHA: "Zhanjiang",
     };
     const raw = `Date,Airline,Flight,From,To,Aircraft,Registration,Miles,Dep,Arr,Seat
+2024/06/17,CXA,MF8545,XMN,SHA,B737-84P,B|B-5552|/5/651952_1713103893.jpg,546,20:02,21:26,44A
+2024/06/16,CXA,MF840,KIX,XMN,B737-86N,B|B-5595|/5/61396_1549775561.jpg,1246,19:18,21:24,58A
+2024/06/10,CCA,CA405,PVG,NGO,A321-232,B|B-8495|/5/37713_1641694507.jpg,906,08:24,11:15,13A
 2024/04/27,PAL,PR336,MNL,PVG,A330-343,RP|RP-C8782|/5/431834_1708222822.jpg,1151,11:57,14:53,54A
 2024/04/26,PAL,PR127,JFK,MNL,A350-941,RP|RP-C3508|/5/549605_1714637055.jpg,8506,04:17,08:14,54K
 2024/03/29,JBU,B61196,FLL,PVD,A320-232,N|N779JB|/5/1453404_1706409636.jpg,1190,21:02,23:50,19A
