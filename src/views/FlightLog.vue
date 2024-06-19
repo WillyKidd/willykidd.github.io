@@ -59,13 +59,18 @@ import { right } from "@popperjs/core";
               <div v-else-if="column == 'From' || column == 'To'">
                 <div
                   v-tooltip="{
-                    content: airports[content.data[rowKey][column]],
+                    content: String(airports[content.data[rowKey][column]]).split('|')[0],
                     html: true,
                     placement: right,
                   }"
                   style="text-decoration: underline"
                 >
-                  {{ content.data[rowKey][column].replace(/\s/g, "") }}
+                  <div>
+                    <img :src="require(`@/assets/flag/${String(airports[content.data[rowKey][column]]).split('|')[1]}.png`)" height="12" class="reg-flag">
+                    <a>
+                      {{ content.data[rowKey][column] }}
+                    </a>
+                  </div>
                 </div>
               </div>
               <div v-else-if="column == 'Registration'">
@@ -189,42 +194,43 @@ export default {
       UAL: "United Airlines",
     };
     const airports = {
-      AEP: "Buenos Aires Aeroparque Jorge Newbery",
-      BKK: "Bangkok Suvarnabhumi",
-      BOS: "Boston Logan",
-      CAN: "Guangzhou Baiyun",
-      CLT: "Charlotte Douglas",
-      DLU: "Dali Huangcaoba",
-      DTW: "Detroit Metropolitan",
-      DYG: "Zhangjiajie Hehua",
-      EWR: "Newark Liberty",
-      EZE: "Buenos Aires Ministro Pistarini",
-      FLL: "Fort Lauderdale-Hollywood",
-      FTE: "El Calafate",
-      GRU: "São Paulo Guarulhos",
-      HKG: "Hong Kong Chek Lap Kok",
-      IST: "Istanbul",
-      IGR: "Cataratas del Iguazú",
-      JFK: "New York John F. Kennedy",
-      JJN: "Quanzhou Jinjiang",
-      KIX: "Osaka Kansai",
-      KMG: "Kunming Changshui",
-      LAX: "Los Angeles",
-      MFM: "Macau",
-      MNL: "Manila Ninoy Aquino",
-      MPH: "Catican/Boracay",
-      NGO: "Chubu Centrair, Nagoya",
-      PVD: "Rhode Island T.F. Green",
-      PVG: "Shanghai Pudong",
-      SEA: "Seattle Tacoma",
-      SHA: "Shanghai Hongqiao",
-      SZX: "Shenzhen Bao'an",
-      TFU: "Chengdu Tianfu",
-      USH: "Ushuaia Malvinas Argentinas",
-      WUX: "Sunan Shuofang",
-      XMN: "Xiamen Gaoqi",
-      XIY: "Xi'an Xianyang",
-      ZHA: "Zhanjiang",
+      AEP: "Buenos Aires Aeroparque Jorge Newbery|LV",
+      BKK: "Bangkok Suvarnabhumi|HS",
+      BOS: "Boston Logan|N",
+      CAN: "Guangzhou Baiyun|B",
+      CLT: "Charlotte Douglas|N",
+      DLU: "Dali Huangcaoba|B",
+      DTW: "Detroit Metropolitan|N",
+      DYG: "Zhangjiajie Hehua|B",
+      EWR: "Newark Liberty|N",
+      EZE: "Buenos Aires Ministro Pistarini|LV",
+      FLL: "Fort Lauderdale-Hollywood|N",
+      FTE: "El Calafate|LV",
+      GRU: "São Paulo Guarulhos|PT",
+      HKG: "Hong Kong Chek Lap Kok|HK",
+      IST: "Istanbul|TC",
+      IGR: "Cataratas del Iguazú|LV",
+      JFK: "New York John F. Kennedy|N",
+      JJN: "Quanzhou Jinjiang|B",
+      KIX: "Osaka Kansai|JA",
+      KMG: "Kunming Changshui|B",
+      LAX: "Los Angeles|N",
+      MFM: "Macau|MO",
+      MNL: "Manila Ninoy Aquino|RP",
+      MPH: "Catican/Boracay|RP",
+      NGO: "Chubu Centrair, Nagoya|JA",
+      PEK: "Beijing Capital|B",
+      PVD: "Rhode Island T.F. Green|N",
+      PVG: "Shanghai Pudong|B",
+      SEA: "Seattle Tacoma|N",
+      SHA: "Shanghai Hongqiao|B",
+      SZX: "Shenzhen Bao'an|B",
+      TFU: "Chengdu Tianfu|B",
+      USH: "Ushuaia Malvinas Argentinas|LV",
+      WUX: "Sunan Shuofang|B",
+      XMN: "Xiamen Gaoqi|B",
+      XIY: "Xi'an Xianyang|B",
+      ZHA: "Zhanjiang|B",
     };
     const raw = `Date,Airline,Flight,From,To,Aircraft,Registration,Miles,Dep,Arr,Seat
 2024/06/17,CXA,MF8545,XMN,SHA,B737-84P,B|B-5552|/5/651952_1713103893.jpg,546,20:02,21:26,44A
