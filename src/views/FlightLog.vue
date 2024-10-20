@@ -53,7 +53,7 @@ import { right } from "@popperjs/core";
                 <div
                   style="text-decoration: underline"
                 >
-                  <img :src="require(`@/assets/airlines/${content.data[rowKey][column]}.jpg`)" height="30">
+                  <img :src="require(`@/assets/airlines/${extractICAO(content.data[rowKey][column])}.jpg`)" height="30">
                 </div>
               </div>
               <div v-else-if="column == 'From' || column == 'To'">
@@ -161,6 +161,9 @@ export default {
         },
       });
     },
+    extractICAO(value) {
+      return value.includes('-') ? value.split('-')[1] : value;
+    },
   },
   mounted() {
     document.title = "Flight Log";
@@ -242,12 +245,12 @@ export default {
 2024/04/26,PAL,PR127,JFK,MNL,A350-941,RP|RP-C3508|/5/549605_1714637055.jpg,8506,04:17,08:14,54K
 2024/03/29,JBU,B61196,FLL,PVD,A320-232,N|N779JB|/5/1453404_1706409636.jpg,1190,21:02,23:50,19A
 2024/03/24,JBU,B61197,PVD,FLL,A320-232,N|N644JB|/6/1386229_1707746973.jpg,1190,06:25,09:15,8F
-2024/02/10,RPA,UA3420,EWR,BOS,ERJ-175LR,N|N729YX|/5/612886_1707409232.jpg,200,14:50,15:35,18A
-2024/02/10,GJS,UA4563,DTW,EWR,CRJ-550,N|N536GJ|/5/1439056_1704163014.jpg,486,12:06,13:12,16A
+2024/02/10,RPA-UAL,UA3420,EWR,BOS,ERJ-175LR,N|N729YX|/5/612886_1707409232.jpg,200,14:50,15:35,18A
+2024/02/10,GJS-UAL,UA4563,DTW,EWR,CRJ-550,N|N536GJ|/5/1439056_1704163014.jpg,486,12:06,13:12,16A
 2024/02/07,JBU,B61037,BOS,DTW,ERJ-190AR,N|N307JB|/6/611400_1686857339.jpg,621,12:38,14:13,5D
 2024/01/18,UAL,UA1890,LAX,EWR,B777-222(ER),N|N782UA|/6/61117_1667443336.jpg,2450,09:07,16:30,44A
 2023/12/17,UAL,UA2490,EWR,LAX,B757-224,N|N67134|/6/60484_1662421793.jpg,2450,18:33,21:03,32F
-2023/12/17,RPA,UA3590,PVD,EWR,ERJ-175LR,N|N766YX|/6/748343_1697722673.jpg,160,13:06,13:56,19D
+2023/12/17,RPA-UAL,UA3590,PVD,EWR,ERJ-175LR,N|N766YX|/6/748343_1697722673.jpg,160,13:06,13:56,19D
 2023/11/28,AAL,AA1254,CLT,PVD,A321-231,N|N576UW|/5/62545_1605700249.jpg,683,07:31,08:57,14F
 2023/11/27,AAL,AA611,SEA,CLT,A321-231,N|N563UW|/5/21866_1566281141.jpg,2275,22:22,05:38,21F
 2023/11/22,JBU,B6197,BOS,SEA,A321-231,N|N961JT|/6/466794_1693976928.jpg,2489,20:22,23:19,16F
